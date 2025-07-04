@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LANZ STORE | Layanan Sosmed Terbaik dengan Harga Terjangkau</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* === POPUP STYLING === */
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup {
+      background-color: white;
+      border-radius: 10px;
+      max-width: 400px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .popup h2 {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      margin-top: 0;
+      border-radius: 5px;
+    }
+
+    .popup p {
+      margin: 15px 0;
+      color: #333;
+    }
+
+    .popup button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- POPUP INFO -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <h2>Informasi</h2>
+    <p>Selamat datang di <strong>LANZ STORE</strong>! Dapatkan promo menarik hari ini dan layanan tercepat untuk sosial media Anda.</p>
+
+    <!-- Tambahan isi -->
+    <div style="text-align: left; margin-top: 15px;">
+      <ul style="padding-left: 20px; color: #444;">
+        <li> Promo diskon 10% untuk layanan TikTok & Instagram</li>
+        <li> Proses cepat kurang dari 1 menit!</li>
+        <li> Support 24 jam via WhatsApp</li>
+        <li> Cek menu <strong>Payment</strong> untuk pembayaran via QRIS</li>
+      </ul>
+    </div>
+
+    <!-- JOIN RESELLER -->
+    <div style="margin-top: 20px; padding: 10px; background-color: #e6f2ff; border-left: 5px solid #007BFF; border-radius: 5px;">
+      <strong style="color: #007BFF; font-size: 16px;">🚀 JOIN RESELLER DAN DAPATKAN HARGA LEBIH HEMAT 30%</strong>
+    </div>
+
+    <button onclick="tutupPopup()" style="margin-top: 20px;">Tutup</button>
+  </div>
+</div>
+
+
+  <!-- ISI HALAMAN -->
+  <div class="container">
+    <div class="main-content">
+      <div class="header">
+        <div class="header-left">
+          <button class="btn btn-primary" onclick="navigateTo('beranda')">Beranda</button>
+          <button class="btn btn-primary" onclick="window.location.href='qris.jpg'">Payment</button>
+        </div>
+      </div>
+
+      <form id="order-form">
+        <div class="form-group">
+          <label class="form-label">KATEGORI</label>
+          <select class="form-select" id="category-select">
+            <option value="gratis">🔥 - layanan POPULER DAN PROMO</option>
+            <option value="prem">Aplikasi Premium</option>
+            <option value="discord" data-icon="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png">Discord Services</option>
+            <option value="facebook" data-icon="https://bcd-pedia.id/assets/img/category/facebook-icon.png">Facebook Services</option>
+            <option value="instagram" data-icon="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png">Instagram Services</option>
+            <option value="shopee" data-icon="https://bcd-pedia.id/assets/img/category/shopee-icon.png">Shopee Services</option>
+            <option value="snackvideo" data-icon="https://bcd-pedia.id/assets/img/category/snackvideo-icon.png">Snack Video Services</option>
+            <option value="telegram" data-icon="https://bcd-pedia.id/assets/img/category/telegram-icon.png">Telegram Services</option>
+            <option value="threads" data-icon="https://bcd-pedia.id/assets/img/category/threads-icon.png">Threads Services</option>
+            <option value="tiktok" data-icon="https://bcd-pedia.id/assets/img/category/66c96159a655c.png">TikTok Services</option>
+            <option value="tokopedia" data-icon="https://bcd-pedia.id/assets/img/category/tokopedia-icon.png">Tokopedia Services</option>
+            <option value="whatsapp" data-icon="https://bcd-pedia.id/assets/img/category/667660d362207.png">WhatsApp Services</option>
+            <option value="youtube" data-icon="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png">YouTube Services</option>
+          </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">LAYANAN</label>
+                    <div id="services-container">
+<!-- Premium Services - Sorted Alphabetically -->
+
+<!-- Alight Motion Pro -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Alight.png" alt="Alight Motion Icon" width="24" height="24">
+            Alight Motion Pro
+        </span>
+        <span class="service-price">Rp 5.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="5000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium selama 1tahun dan garansi 3 bulan, akun private, Akun dari penjual
+    </div>
+</div>
+
+<!-- Bstation -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="data:image/jpeg;base64,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" alt="Bstation Icon" width="24" height="24">
+            Bstation
+        </span>
+        <span class="service-price">Rp 10.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="10000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Canva Pro (1 bulan) -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Canva.webp" alt="Canva Icon" width="24" height="24">
+            Canva Pro (1 Bulan)
+        </span>
+        <span class="service-price">Rp 5.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="5000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari pembeli
+    </div>
+</div>
+
+<!-- Canva Pro (1 tahun) -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Canva.webp" alt="Canva Icon" width="24" height="24">
+            Canva Pro (1 Tahun)
+        </span>
+        <span class="service-price">Rp 10.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="10000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1tahun dan garansi 3bulan, akun private, Akun dari pembeli
+    </div>
+</div>
+
+<!-- Capcut Pro -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Logo%20capcut.jpg" alt="Capcut Icon" width="24" height="24">
+            Capcut Pro
+        </span>
+        <span class="service-price">Rp 17.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="17000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari Penjual
+    </div>
+</div>
+
+<!-- Disney Hostar -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/disney.jpg" alt="Disney Icon" width="24" height="24">
+            Disney Hostar
+        </span>
+        <span class="service-price">Rp 15.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="15000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Dramabox Premium -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/dramabox.webp" alt="Dramabox Icon" width="24" height="24">
+            Dramabox Premium
+        </span>
+        <span class="service-price">Rp 15.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="15000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Fizzo -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAMAAzAMBEQACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAAAQIEBQYHAwj/xABIEAABAwMBBAcDBgsFCQAAAAABAAIDBAUREgYhMVEHE0FhcYGRIqHRCBQyUrHBFRYjM0JTYnKCkuEkNENUYyU3RHSDk6LC8P/EABoBAQEAAwEBAAAAAAAAAAAAAAABAgMEBQb/xAAyEQACAgIABAQEBQUBAQEAAAAAAQIDBBEFEiExEzJBUWFxgZEVIkJSoRQjsdHw4cEG/9oADAMBAAIRAxEAPwDuKgCAIAqAgCAIAoAgCAIAgCAIAgCAKgIAgCgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAgoDX9q9sLLspTCW71gZI4ExwM9qR/g37+CoOP7QdPF1ne5lgt1PSw7wJanMknjgYA96A1N/Svty92TfpM/s08I+xiAvLb0ybaUb9UtfBWNx+bqaZmPVmk+9AdW6NulNu2FwNrq7f81rREZA6N+qN4GM8d496A6WoAgCAIAgCAIAgIQEoCAgBQAICUAQBAEAQBAQeCA0fpR29h2MtbW04bLdakEU8R+i0dr3dw5dpVB8w3a5Vt3rpK641L6iplOXSPO/w7h3ICzQBAEB0n5P8A/vBZ/wApL9yA+mlAEAQBAEAQEFAEAQBAEAQBAEAQBAEAQBAeNXURUlJNUzu0xRML3nkAMlAfH22V/n2n2irLrUOJEr8RN7GRj6LR5KgwiAICdLicAHPLCAOaWnDgQe8IDpPQBu6QWZ/ycv3ID6YUAQBAEAQBAEAQoQBCBChAEAQgQBAEAQBAaH01XR1t2ArRGQJKotgHg47/AHID5aOFQQgNm6PdlJ9sdoorZE8xQBvW1Mo4sjBGcd5JAHigPpyxbGbPWKnZDQWumBaN8kjA97jzJKgLu4bOWW5ROirrVRzMcMHVC3PrxQGC2d6N7Fs5tFJebS2aJ743MEBfljQ7jhUG5KAIAgCFCAIAgCAIAgCAIAgCECFCAIAhCOKA5D8pCYt2btcQJGqsLiOeGH4qg+fEAQHd/k10jRR3qtx7T5I4s9wBP/sgO1qFCAIQIUIAgCAIAgCAIAgCAIAgCAICCUBDnta0uccAcSVNrWxp70jE1u01ooziSra931YwXH3LmtzaK+kpHdTw3Kt8sfv0MVJt3QNOI6WpeOeGgfauOXGKd9mdseBXtdZJff8A0Ufj7R/5Ko9W/FT8Yq/azP8AALf3r/voaH0uzO2zt9BDa43MfTSue9sxAzkY3YJWceL0PumjTPgmQuzTOQ1mzF4pATJRPc0fpR+0F1QzsefaRx2cOya+rgYqSJ8btMjSxw4tcMFdSaa2jjcXF6aPoD5N7gNnbqztFaD/AOAVIdeBUKMoQagg2ShQgCAIAgCAIAgCAIAgCAICCcIDCbQbR0toBjx11URlsTTw7yewLiy82GOveR6GFw6zK/N2j7/6NAul7r7o4/OZz1fZGzc0eXavnsjNtuf5n09j6jGwKcdfkXX3McNwwuTZ2aGFNgIUEZRMg7McPBXYLWrt1HWjFXTQy/vMBW2GRZW9wejTZj1WrU47MjslUt2RFQy008YjqHB0jJC4jI5b9y7q+LXxX5up59nBcafba+Rs7dvKgD2qCInukIW9cal6wRzv/wDP1vtNnjUbc3F4Ihgp4s9uC4/asJ8ZtflikbIcBoXmk2XGyN5uFwvuirqXPjfG46ODQe4Lbw/Luuv1N9DTxTBx6MbdcdPaN8XunzYQBAEAQBAEAQBAEAQBAEIa/tXfW2mnEcJBqpR7A+qPrFcGdmLHjpeZnp8NwHlT5peVfyc1ke+Z7pJXF0jzlzid5K+XnNyk2+59jGMYpKK6FKwKEKEAQBAEAQDCAYQDCAy+ydfT269RzVT9MeksLscCea7+H3Rpu5p9jzuJ0WX47jDv3+x1GOZksYfG5r2OGQ5pyCvqlJNbTPi2mnprqeioCAIAgCAIAgCAIAgCA8qmZlPBJNKdMcbS5x7gsZSUVzP0LGDnJRXdnIbnWyXKumq5c5kdkN+q3sC+OyLpW2ObPvceiNFSrXoWy0G8jO/HljmslHZG9dzMUOzV2rcObSmGM/pTez7uK7KuHX2dlr5nn3cUxaujlt/Dr/4Zqn2EmP8AeK5g7mM+K7ocGf6pHnz4/FeSH3Z7u2DiwcV8me9gWz8Gh+41fj8v2L7mu7X2X8VbPJdaqpEtNG9rXBkZ1e0cBaZ8Gml+WWzpr47VJ/ni1/Jq1Df7XX4FPWRFx/RedJ964bMK6vzRPQqz8e3yz6mT34z2Ll0jrTIz3LFmSJCAZQEHhnO5UnqbJsj+G46iP5jE80bnDrNYxHjtIz2+C9Xh/wDUqS5PL8ex4/FP6OUH4j/P6e//AHzOkr6Q+TCAIAgCAIAgCAIAgCA13bqp6ixPYDh0zgzy4n7F5/E7OTHa9z1OD1c+Un7dTmo4L5Vn2C7F9Z7VU3aq6mnGGt3vkPBgXTjYs8iXLH7nLl5deLDmm/p7nRrNs/Q2loMUYkn7ZnjLvLl5L6bHw6qOy6+58llZ9+S3zPUfZGXwF1nCMDkmikqaQOedO7g3o6qx2unhx/OCqkgfMOVSF5R3W4UePmtbPEBwa150+nBap0VWeaKZvryr6vJNr6nU+hmWq2qvVdTXmd0tPBS6xpDWkOLgBvA5ZXJLhmK/06+rOyPGMuP6t/NHWvxHtX6yqH/UHwWv8Jx/ibfxzJ9l/wB9SuLYu0RnLhPL3Pk+ACq4VjL3+5Jcbymuml9DJ0ditVJh0FBCHY+k5uo+pXVXiUV+WKOS3OybVqc3/j/BkdLewLo0jkJQBAEAQBAFAEAQBAEAQGndJDsUlEOcjvsXj8Yf9uPzPf4Cv7k38DR6eGSpqI4IW6pJHYaOZXhwg5yUV3PorJxri5S7I6UX23Y3ZqSpqnhkFOzXNIR7UjvieAX1uPjxorUF9T4bLyZZNrsl9PgjCdF22lVtrT3WqqaeGCKnqQyBkedQYRn2iTvPhhdBzG9KFCAFUHJvlF13UbKUVG076iqGR+y0E/bhCHzsqAgO2/Jqpiai+1RbuDIY2nmcuJ+5Ad04qFJQBQBAEAQBAEAQBAQgJQEIAgCA1TpEh12unm7I5cHzGF5fFoc1Kfsz2+Bz1dKPuv8ABhdgKQT3WSoeN1Ozd+8f6Li4TVzWOb9Dv43dyUKC/V/8NN+URtDI+toNnoHERxx/Op9J4uJIaD4AE+Y5L6M+UMf8nzaCG33+ss9VJobcWNMJccDrGZ3eYcfQBRg+h1ChAEB819Pm0Dbtta23U7w6C2R9W4j9a45dv7vZHiCsiHMkBIQH0j8n23Gk2Kkq3ZzWVTnjI/Rbhv3KMHT1ChAEAQBAEAQBAEAQBAEAQBAEBj7/AEP4RtNRStHtubln7w3hacirxapQOnDv8C+M329fka70cjFPXatzhI0EHiNx4rzeEdITTPW489zh7aZwnppc5/SXeASTjqQO4dSxe0fPmmQSvglZLC8xysdqa5pwWkcCEB2/YrpuphTR0m1cMjZGgNFXC3UHd7m8R5KaBvZ6Udiep638PQaeXVyavTTlAaHtr03QOp5aPZOKTrHAt+ezNxp72t5+KaBxCWR0rnSSPc97zlznOySTvJKoPJAe9HTS1dVFTU7S6aZ4YxuOJO5AfY+zNqZZLBQWyPhTQtYe843+9RgyahQgCAIAgCAIAgCAIAqAoAgCAICDxVIWlHbaaimqJaeIMfUu1yY4ErVCqFbfKu5utvnbGMZPpHojgHyhbK6j2sp7qyP8jX07Q5/+oz2SP5dHvW1Gk5UeKoIQBAEAQEhAdf6BNjX11y/GWtjIpKQltKHN/OS9rh3N+3wKA+gAoUlQBAEAQBAEAQBAEAQHnHKx4y1wI7isYzUuzMnFx7lYIKyMSVQFAEAQBAa3t9stBtds9NbZiGSj8pTyn/DkHA+ByQfFUh8o3qz11kuc1uuUDoamI4LXdveOYVBY4QEICQCgGEB0zo36Ka7aKWOuvUclHagQcOGmSfuA7B3+iA+jaGkgoKSKkpIWQ08LQyONgwGtHZhQp7qAIAgCAIAgCAKgZUBS54A4qNlSLaSugY7DpWgrTLIri9ORtjRNrsa+2Sandlhczu7F4kZzg/ynqOMJ9y9hvD24EzARzbxXZXxBx86OeeGn1iy+hudM/jJpPJ25ddeZXP1OeeNOPoXTJ43b2vB810KyL7M0OEl6FYkHestmOmTrCuyaZOoc02BzTYNf2u2Ns219K2G70/5RgPVVER0yR5HYeXccju4Jshx689BF3gke6z3Klq4s+y2YGJ/h2jzV2DCjoW2zDv7vRjv+dNTYMxbege+TOabhdKKkb26GulcPLcPemwdI2U6KNm9nZG1Lon3GubvE9WQQ0/ssG4eeT3psG9gAcAAO5CkqAIAgIyEA1BNoaI1hTY0NY702XRSZWjiceKjkiqLLeW4U8XGVueQ3rTPJqj3ZtjROXoWM16bwia4nmdwXJPiEV5Vs6YYT/UWMtbUVBwXbvqtXJPJts7s6Y01wKBBIRwHqtagy86LKLaGmePy0MrPIOCiyYPv0OiXD7F5Wme7bla5eMrW/vNIV8SmXqa3jZEfQnrLdJ9GrZ/3AnLS35v5ROTIj3h/BIZT/AOHWsHgR8VfCX6ZEcp/qgerOsH0K8ev9Vmo2ryzMGovvA9WyV36FbGfFZqWSu0jBxp/YVtqbm3frgk81l42UvZmLrx37o9WXOvZ+dotQ7TG4FbI5l8fNDfyNbx6X5Z/cuIr1TF2mYSQO/wBVpA9Vujn1N6luL+Pb7muWHZ+nqX8c7JW5YWuHMHIXZGcZLcWcsoSi9NHqHA9qz2YkoQIUIBlNgodI1vE4U2Cxnu1NG4ta50r/AKsY1H3LlszKo9E9v4dTphi2SW9aRavuNZJnqaPQOcrwPcuaWXc/LDXzZuWPVHzS+x4OqLk7jUU8fgtTtyn6pGxV0Lsmygvrj/x8fkVi5ZP7zPlp/Yygtq3fSrh5OWLje+8zJeEv0FBpXvPt1QPv+9YeDN95GSsiu0SW0UY4ynywEWOvVkdz9EV9XTRj25G7vrPCy8OEe5jzWy7I8ZLtb6cY69p7mDKjtrj6m2OLfP0LJ+0kQd+Tp3ubzJAWp5UfY6I8OnrqzXMBcR65PYgI7EJoYB3ED0QowOQU0vYdSRu7T6qroTRUJJB9GR48HFXmkuzI4RfdHqytqo/oVEo/jKzV1i/UzB0VPvFFxHebgwYNQXjk9oK2LKtS1vZpeFQ/QuIL7Ix2p0DAecbiw+nBZxytPetfI0z4fFrSf36maodqYMhs7nN/fH3hd9XEY9pfyeddwqfePU2Clr4KlodDKx4PIr0K7oT6xZ5llM63qSLkOyt2zSUSTNYMkgAdqjaS6mUYtvoYe4bQ0VNlgla53Ju8rhuzq4dEzvp4fdPro16s2kdNkMh1N7DId3oF5tubz+n3PUq4Zyd39ixkvNe4aWzdW36sbQ0LQ8m3Wk9HXHCoT3rfzLSSpqJPpzyn+MrU7Jvu39zeqoR7JHmXOPFzj5rHbM0tFKg0T5n1TY0Tl3MjzV2xpew1OPFx9U2/ccqKSO4KFJCE0E6FCAIAgPWlfCyYOqIutj7W5Q1XRlKOoPTLmqpIHRmooJC+Mb3xn6TB8ENNV00+S3o/4LBDrQQEnux6oTZHmg+QPLegGBnj6p031IVRSPifrhe5jubThZRco9YklFSXVGZpdqK+GPq36Jd2A524hdlfEboR09HBZwumUtroWFbc62tJNRUOLfqg4C0W5Flj3JnTTjU1L8qLMAbsfBaNnQSPBCDehdjyJV0E9hQoQHtSU7qmUgENY0Ze88GhDVbaq17v29z3qzQRw9VStdJJ2zO+5DTUrpS5pvS9iyQ6wgCAIAgPakppKqYRRbzxyewKGq22NceZmT/F+QAf2hurlpTZxfiK35S0qbTVwAnQJGDtb8E2b68yqzp2ZZxyPikD2Za8e/uKp0Tipx0yHYLiWjAJ4ckKui6hsbnuDG8XkNHiVUm+i7hySW2b7PYre6mkjjo4WSmPDXAb844r3Z4lLj5Vs+Xhm3qak5PRrGzVAypuwiqow9kUbnPY4bsjd9pXmYlSlbyyXRI9niF7hRuD6topvFI2W+Oo6GFjPaDGtaMDON6ZEE7+SCGLa4YyssfxMvNTWWwQxtrovnNQ8Z9puonwHABdbrx8ZLnW2cMbMvNk/CfLFfQ9am2Wy7Wp1Xb4WxO0lzSxuneOwhWWNRdVz1rTMK8rJxr1Xa9rfqeWy9BRVtseaimiklbIW6nN34wMfascKmuyrcops2cRuuquXJJpa/2auIHum6mMZe5+kAc8rzVB83Kvc9rxEo8z7Gx32kobVaIom00T6yXDBI5o1ftO/wDua9DKqqpqUdbk/wDtnjYdt2RkOXM+Vdf/AAuoaO1W+xw1NfSRSHQ0vd1eokk/1W1VUVUqVkV9jVK7IuyXXVNrr7mNrLjYJKWVlJQhs7mEMcYMYPNc1tuHKDUI9fkddWNnKac59PXqXOyltpJaCeoq6eOTD8DWM4AG9bMKiuVblOKZr4lkWxtjCuTRrLvac5wAAJyABwXmvv0PZXRdSnChT0MrupEIyGcTj9I96GHIubmZVTUlRVOxTxF2N2TuCNmNl0K+smZGOwzEZkmY3uAzhTZyS4hFPotnhX2majjMmpskY4kbiENtOZG18utMx6p2BAThNE2XVuq3UU/WBusEYLcq6Oe+lXR5X0Mr+HmEb6dw/jCx5Ti/D36S/glt9i7aeTHcQU5GR4Ev3FFR8wuQJa/qZ+wuGPVNNFh49HdbiYqemkp5CyUYI4HiCs0d9dkZraLmzQdddaVhGR1gcfLet+NHmtijTmT5aJP4f5NukrgzaOKlJ3Ppyf4i7P2Bes7uXIUPgeDGjeI7PiU2+hFPebjMANL2sc3uzkn3hSmrw75y+Rci7xMauPqt/wAdjFbNsFTfayqdvLQ4tzzLsZ9M+q5cRc18ps7s9+HjQr/7tsx+0LzNeqg8dBDBnuC0Zb5rns6cGKjjxXv1M7af7Fsu+WT6kjwPHcF3Uf28bb9jzcleNmpfFIt9i3aW1MR4jS4D1C1YD6OJt4qt8svmU2S3N/DNZPIMR00jg0n62T9gTHp3dKT7JsuXkax4QXeSRibtUG6XRzxvZqEcX7uce9ct0/Gu36djuxqlj0a9e7NpvJtsdLFT3SQMhyNIyRnSO7xXp3+CoKFr0jxcVZDsc6Ft/wCzVrsLXmJtqdqG/WdROPVebkeB0VR7WL/U9fH+hnqYfM9kHO4OfE538xwPcu2H9rEb+B5lj8bPS+K/g1HRheTy6Pf2NKx0XZkKWggiAmuDw0EZER4nx+Cxe/Q4rcicvy1L6l4bzTRANhgeQNwwA0KcrNCwrJdZSKfw7Hn+7v8A5gnKX+gl+7+C2r7uaqndCyDQHcXF2dyqibqcJVzU29mJwh3pjCFPTCy0YbJwqNk4V0TZUAmibJ0q6GyslxZpJy3kexVIw0k9mV2ZEbbiZJXsYI4zvccLrw0lZts4eIturSXdnldar/bstVE7PVSNDSOTQAfvWN9n99zXo/4X/Myxqt4qg/Vf56/6Noqq+mbQyysniJ6suADt53f1XqTsjyNp+h41dFjsUWn3Na2drorfVn5ydEcrA3WeAcDuz8V5uLbGue5dmetn0yvr/J1a9DL1tnoKmpfWOrGsY/e/Dhg+fYuuzGqnPnb6HDTmX1w8NR6/Ux17usNVEyht2+nbjVI36LscGjmue/IU14dfZHXiYkq5O27ze3r8xs1MyGvd1jmta+Pi44GVMKSjZ19UXiEHOpa9GX97rIaWhfBRyMdLVSOLi12cA8T9y6MmxQhywfWRyYdM7LFKxdIowdojYblSh7mta1+faOAMb/uXFRBeJHZ6eVJ+DLXsbHdKOhub43S1rGaAQA17d+fFehfXXc9uR5GNbdjp6hvfwZr93oaaiMbaWo64uaTxBx6Lz8imFfSD3s9XFvst25x1o2OqgpKm2x0LquONjQ0Eh7c7gvSnGE61XzaPIrnbXc7VD39GYK62yjpKYSQVfWyFwaGBzT9i4L6IQjuMtnp42VdbPllDS+piW6mP1N3EcCuTR3vTWiHZc7U8kk81NFXTsQWpoy2UkKaGykhNF2MKaLspwpouz0AWRiSAqQqAVIThUhUAhCQFSEPibJgPaHDvCOKfdFUnHsytrA1oa0YCukuxi5N9WUini16urbq54Tkj30XxJa1s9SwO+krow3o8xRwZBETc+Cnhw9jLxp+57NYBuAwFmo+xhze4fC17dL26hyKOKa0wptdUUsgjj/NsDe8BRQS7IrnKXdkvja9pa4Ag9hRxT6Mik09o8fmcH6pnosHVH2NnjT9ypsMcYIYwDPJVRUexi5yl3PM0kA/wm+ix8OPsZ+LP3JbBHHvYxo8AihFdiOcpd2VEKjZBChSkjehSkhQEYUKinCMyIwsQf//Z" alt="Fizzo Icon" width="24" height="24">
+            Fizzo
+        </span>
+        <span class="service-price">Rp 10.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="10000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Iqiyi -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="data:image/png;base64,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" alt="Iqiyi Icon" width="24" height="24">
+            Iqiyi
+        </span>
+        <span class="service-price">Rp 10.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="10000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Loklok -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="data:image/jpeg;base64,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" alt="Loklok Icon" width="24" height="24">
+            Loklok
+        </span>
+        <span class="service-price">Rp 20.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="20000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Netflix Premium -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon netf" src="https://geraitopup.com/assets/thumbnail/106af21c0028ab9c08e140f3f9d917c58dfaaca3.png" alt="Netflix Icon" width="24" height="24">
+            Netflix Premium
+        </span>
+        <span class="service-price">Rp 17.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="0" data-rate="17000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing 1P2U, Akun dari penjual
+    </div>
+</div>
+
+<!-- Piscart -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="data:image/jpeg;base64,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" alt="Piscart Icon" width="24" height="24">
+            Piscart
+        </span>
+        <span class="service-price">Rp 7.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="7000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Prime Video -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/primevideo-icon.png" alt="Prime Video Icon" width="24" height="24">
+            Prime Video
+        </span>
+        <span class="service-price">Rp 14.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="14000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari penjual
+    </div>
+</div>
+
+<!-- Remini -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAkFBMVEWlHyT///+nIyWlISaqKiejFxyqLTK1SEykHCGdAACaAACgAACiDRPmzs7Ur7CmNTWhAAr69vb38PHz6erRn6DOlZbt2NmyUVLGg4S4aGi1WVrmyMrHi4yjGBjAeHju4uKrQEKtR0mPAADfvL24YWO8cHHXqqupJSCuPT7KgISaHx+vOzasUlKpHxWbJSaIAACksaS0AAAPRElEQVR4nO2dCZOjqhbHk9g4GDHBfcVl1HTmvr7zvv+3eyC4xGiiWbqtV/6rbtXEduHngcMBjtyNvPl/Efi1WWEWqRVmqVphlqoVZqlaYZaqFWapWmGWqhVmqVphlqoVZqlaYZaqFWapWmGWqhVmqVphlqoVZql6HwxSMCIAvufmw3oXDARFFAeZrCoKxgTCb4F6FwySw63haPnJ8spARpgKAfBmQ70JRsJnbctlmImWH6zIP28oDUZvZHoABoJb4udIOEu2XemG6TjhySrT81HeYaUyFGWSpB+FgZvdDdWNQy307bV0ymQ64cEr3CyVkaqqlAlSotcwzYaB6M/hhuwdp1H9AZYOlJ44ue35gSsDhTO9AGk+jJLfKqYjE47s3TqrpTJD2pw8PzsSda+o+LnWNB9GPdyEkSoYAE+8sMZQbbuSkTC/98endgIIYdo9PeTLXw6z4zASt18SlZYVOolhTKCiPiLMD7ZXnFP5g0KRxp/8LAwSnlnLFLI7Z64fR4fQcRJzApKROE5+sv3iKzvvqNebHke8HIa3GZyZ1c8wJVXFob3L8XjOCs86hJpj6neZdN1k/ZP1J/aDTGJxBHkHjMJhdDMxB5TzNoMDozrrIImKQjsngqh2snzMYts6HMIpZqr6J+1gUcd3vE8zGwZg3hqc2C8HFFQtF6KYF/TUqyFVh1s1BpAWpWdbuTMFiTI5vnrXcc+HQRwmPGI0JF5mbFdF1K2x6g4hMxQGxyzwYzvXzHs4SfBOmPMNTwOIVZ1kerfbLoSs8mHyccy+XNqeHGMURkPvqGaTYGjMXL3OckKzrZho5VMx+Sufg/ikJQNM2n5C2d4Cg2SHw/jozu12u81OBHv0H7Ty0eBmv1elwqJVr9s35fv7sc6bYM48ZtbS+73eVawq0XAVKXsqJYisnN9Jt38OpuAVJZRuw+zGInCpElCV/T+iJ/CUH4KBOOYwuXwH5qY2lAlkPJTQJ3jmB2AIh8mPN2BQJDzzrXjxNgmDoSIub30mvNf6HoKB4X0YcKhgDPuWZ+Yv/w4OCnibMSc4swdgdvdhAODWM2MyDnPXMBUNKnh3qv2eMHB7D8xOE732eN2YQkL/Q3Xrm+DM3gODzryiO9kcmA+m3jG4s0SQ93MwruhmzpNhKMYVCRWQeevbTvHMT8Dc8Lq4NO+cc9XyP7hh+tYBRzHjcHwPDLwLA5GImU/jMENV7JplB1JeYbf7KQPo2TDkvmUgFrMZ9kg3c2WVURgiYPT9lJHzXBgJydp9GF43jBKPnTJmlT5P3c04U9r/W2DqiMcMJsEM0DR/wp4I8n4MhoipmcQdgdlNt4w9wzO/BQb79QBgxDOPN/4+DDlxmHKKM3sc5jAe3St13RiBGUX5vOKBwjO7E2Lm98CokagbY8YbgflPl0bAcNe5/SBDMP2Z9rdYhs9m6J464k+HYVDkqT3T1K3PGLiRtEGqcvmEN8DAGiZWR84YrmTYyfswSsFbX/LPdUHIXoojV+36mNkw+HgPBux4RddHW20HpsVRy63jqpcwah0XXTc+JFmJrhuaj1vjPACT3IFBX2JqJsD3YRoRZND4B5ELGlW4EvvKxqQO2ozObNZ8GDHxcvgYhfH560y+xmCuaT5xVTjD/vz3wjK8wm7jvjODINoKJe0M0OzYDJ1zh8mWxqIl8nXQnETfhmd01zKchqgo4G7LsM4q/mxocBxqjqFvi37vi7J6MZuSNnWwB0P6U8cA9IJFuDn+StM0O45HfgTJmR9ZJZwSM7Niu9GhWZsOrfg/n41vRujoerZ1NXbCQTs5nTf17BIGnn/1JG/Y6mm34FBQjrLQUwjCioJHcfswRd6ZujSt82cbBACEFFUFfRNPgIFHXoU60rTw4B0RemkawkUIwHAyv8YxLf+8++gNOq9rK8qcBsZWRmDamtiRkVjpa2l6Ec0nUWUeNTglQGTXG0EPXA82VlO6rzHLDMJQXbjzl8Mwd6bGjMX/97M/GTB8A5SKQEeP2vc8EYZ258rgTV8Bw/3zPqcFUztx2U2YjZqGzJZmRNrWOxWGRuFjwcnzMBXNv8etJrE+c9ebpRm+g6Si0rajVOl4oukw5nm0D3yWhePg8FAZZhrMRgIK1UUHNB1me5g0qfAgDes6/QL369gNGBY3b24MATowhlgK7yzIGdnrTDM8O/s5MA04znKtERjDKmMmz86b3km3Jo1dn4DpV7CZLKMwvkKoEAFy3EQa2s1u/yU074KBXAhFdVVLemN6qVHvphdHr08RR+6DiKuGHzNwcBymPqsNUJOLeTBpo+73v5n2Cry8Zx2lQnqSsuengIYNVIf27Kq23LC5pvoJMMu34WmCG1w/plsxmgvuu+YOTDMM2pplp+Mkyj49aCx/xsnL/b6DCTcyl7SB6r7M6SlJXiqiKNShxuKQqsCGpb5GrgChVP+kg/B9dnLYYw5FBwc2p8CRkeY9GL8pMlGJ1c08yM9KHVVAbIuDTrb3mwZnRlWfoGK7uc7wFCRgVLE8TYdnO7iDoI68nFQJ2pAy8bAogYSD+s5eW/cnVDO3vlszQwmxZPfTd/JjbfAGJgxOF2ecEUSdom3ZNCEWMHVIb9iQwpAaRru8BbuHgGlK5eEJMLz9A3I81eV2ZJHmA4KBzjWJN+ASxskviTVZCXoJP06GN7dg+regw1c8H6Yk3OPIwaGpFrkCOUvpbAeUeHwk3cBc5V5Z0tWFIQLMbY3BXCdD5hjMhdEPtlXp0D6+TpLAxSALG4xUi8sNzJX00/UxT9n0YTYtzIA8NrkxC4ZlHlfqlpUnSeFj2Bxi6ZSd5Le8migZhxmSBggLgafDJMw082CuZfA5PYjbMV5olUERnxpD6REzzQWMTgfel4n01aGevW/DJNrFPWJ2wXMwus3Hms1jt0l0lAhGRG49jpaSSxjHdtPUD7sGTqwiS4vGq2xPym3LmKcyS9O49QTh/lnLmBHPMW6fk/igytGFAMGaxohpYN2BcQo6pCco6ySpJ+WGHZKbFxDKSLqEkbowZiQhRBBKm3sktOt8Cib0+SRY9yYI1uERUurzIrULY5ZV3wNx3IbeNu/F61QBWrZClcYto9uA8BTWxu2YKX4CRg9jWfTvEHvC3Pnf3/tG/60nS0OZdGDCI++Y2iBi6xDRV8n1ocS/BaNloqxArvOpWeN9GEY/wSYmAqTu+pPwQvVbc1ELQyudeAVNQehwlUcWbXlNVrYxGN2u4woI6+hdj2bCGAVqm6jhNTMg6HjzG42tEagtjBmIwBTu6oCsTejDZYN8A8ZocuYgqQdWFGZuOLPvFDsp6yiyO5M4CFN0YBwX1W+1hjGa7GTk6xNgkqIZqoOyhZlpGV9BblvntLpY92D0LoyWXcGYuzrGnQajZa+Bkeo1OKZcZGTOg0mvYZrvEybCtIPbLszsqFmCStwOWU68m2lhjMHvGhw6SrgJg37IMnRQ2PZd+p+qMaNz3ZKswC+68tlPv5Dhq2GGLPMAzAbA9lsZ44s1XbCre+4TuviwQVVUMez/DsvMr2ZseRq1TsDJ6CGIo3ohxe1MCEgE+KBe9FuoZdhce+sEHELfklrUkUlO1GYqSFVOhiWJDINlthn+zHage8BIQk0Yss3lPa6G1ljZ0IN6HlSDwKVWs021Rt1EAtUoQPWa306U/t1B6e+XJfIoPABeD/O6asYCvDauMT2yQbu2Gemmlh9ypxmoGxZL/VluNet6YzY+QZs6BWRIJvte5hss82A1q0YSrS1COpZQoqspEyHd3nyPa37YMp14leoECVSvZgDFRZbEirrgNsPOge2UKnMChERDNY0NcDevh3mtZdhXF1bHCWAIQKn1jaNrJeRB5HJds3gyaOfK2BADEjm6wDG0SK4/LxmEqUuO5kXNTidqbiYSJlpmF4k9Ck7uZUaSmrX7F8RsToYgUpw0x2Rrn0l4cEm7TkL8eqODOn8HAv8k7tucRjJxyPrCzGXWJ/js7qisb9GmeULXEgcLGiWSoy1+BSN5AGw9RaiXXSXhdvZCRC2Q7UZwDopMYt8idk9G9YntY7AijnUWU5TOo6T6Gr4W3pSjmwKE6guq+dn28vbBvRStsYW9zpJf8zf6D4JVVWULZHdX6G4cGlzrGyrH8AWdE57cqmUQ/Me07tW0VK0wS9UDMMPubgl6YHsj5o6pQ35PeZ7S/A1BQFZ8fX0F6bduwzZND3zaOPoxEKy2+3phstBcve47TQjTogiys/xzJnslDA2NjcQ5jH2cNespD23W9DoYIPFBjzH+DeBkQUli257MrbEvhDnyz5AT8nSrgbJteX6Qza2xr4MhZ/4HZ+zjrBnPSE3dTBzNm5lL/QzMZUiOfnE3Fz4Pg1w+iJybFPowzKldbOalJ2Jt+6Rung0P1FIM9id90Ngp26MwSd6Mo6tsJkj4hIPu/WZJf0+FPCKjxZiyo8lF2R6F6ahqPhB4Ykszy0sVZjb14U0LiXhfo1+CjZXtBTAhg6k9c5UQZSbawQp2bJiuqv1vo+4Lii/wRr8EGyvb62Cud6TTE+0UF/Lfv0Rs1jqtcPAfYeO5L+F1MPLo9nqGc7Dj4Cs7yojv8HenkEAW29ZN2oLrHTAku5Grxs0U5nZZFu55x/ORxyIWSS3FfkJz46KHYPQLcQcA3HBsceBCpqOd7Cj2M6naJpBcb6sriUVu4+qDxpfDQFjal7LK6rjsR7aVV1sx3qfiOwXTyicfaRgmvqGsYfZi14rs7bHZZqP0xXOXAFZULLtFGXunXEvMabuAahrbMtM9H1nl41sFS7/FXlPfAXNDfNdCLKVZEMTWIXccynQPSjdYHJZbXum6qURH5XuxPdOEnd7eCSOQAGsN+POj2gbUPoVh0v2oaJTJSFj35JX1Tm83PtL9PhihKl+d+eLdzvU968Ta012kCor/Y3TbylF9x7wZBEhl6ShHaqeI+oihzRgHFM8e5H3PJGAVdgJcTVIhOQuK2M6d5HZz0v2FwnBVUSc1E2PC0jl13dgKK783BGXe2BxtRD80PUubE3V7KgaSfD4X9on6vaTnyx13bjTz03PNgG8WTHsXOYgoU+gktZOY75l/GoaLbddK2P8HAUuuH1sWZTJv7QUzpkXACDFfznZFUMHZ9aNg/iTPkmAa8a2CH7huiTCPaoVZqlaYpWqFWapWmKVqhVmqVpilaoVZqlaYpWqFWapWmKVqhVmqVpilaoVZqlaYpWqFWapWmKUK/PofsOJ+7Z3EPF0AAAAASUVORK5CYII=" alt="Remini Icon" width="24" height="24">
+            Remini
+        </span>
+        <span class="service-price">Rp 12.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="12000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Spotify Premium -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/spotify.jpg" alt="Spotify Icon" width="24" height="24">
+            Spotify Premium
+        </span>
+        <span class="service-price">Rp 15.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="0" data-rate="15000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari penjual
+    </div>
+</div>
+
+<!-- Viu Premium -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/viu-icon.jpg" alt="Viu Icon" width="24" height="24">
+            Viu Premium
+        </span>
+        <span class="service-price">Rp 7.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="7000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong>Premium 1bulan dan garansi 30hari, akun private, Akun dari penjual
+    </div>
+</div>
+
+<!-- WeTV -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Wetv.webp" alt="WeTV Icon" width="24" height="24">
+            WeTV
+        </span>
+        <span class="service-price">Rp 12.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="12000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing, Akun dari penjual
+    </div>
+</div>
+
+<!-- Youtube Premium -->
+<div class="service-item" data-platform="prem">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/youtube-new.jpg" alt="YouTube Icon" width="24" height="24">
+            Youtube Premium
+        </span>
+        <span class="service-price">Rp 5.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="5000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari pembeli
+    </div>
+</div>
+                                   <!-- Layanan Populer dan Promo -->
+
+<!-- Aplikasi Populer -->
+<div class="category-section">
+    <!-- Alight Motion Pro -->
+    <div class="service-item" data-platform="gratis">
+        <div class="service-header">
+            <span class="service-name">
+                <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Alight.png" alt="Alight Motion Icon" width="24" height="24">
+                Alight Motion Pro
+                <span class="tag popular">POPULER</span>
+            </span>
+            <span class="service-price">Rp 5.000</span>
+        </div>
+        <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="5000000">
+        <div class="service-result"></div>
+        <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+            <strong>Deskripsi:</strong> Premium selama 1tahun dan garansi 3 bulan, akun private, Akun dari penjual
+        </div>
+    </div>
+
+    <div class="service-item" data-platform="gratis">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Canva.webp" alt="Canva Icon" width="24" height="24">
+            Canva Pro (1 Tahun)
+             <span class="tag popular">POPULER</span>
+        </span>
+        <span class="service-price">Rp 10.000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="10000000">
+    <div class="service-result"></div>
+    <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+        <strong>Deskripsi:</strong> Premium 1tahun dan garansi 3bulan, akun private, Akun dari pembeli
+    </div>
+    </div>
+
+    <!-- Capcut Pro -->
+    <div class="service-item" data-platform="gratis">
+        <div class="service-header">
+            <span class="service-name">
+                <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/Logo%20capcut.jpg" alt="Capcut Icon" width="24" height="24">
+                Capcut Pro
+                <span class="tag popular">POPULER</span>
+            </span>
+            <span class="service-price">Rp 17.000</span>
+        </div>
+        <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="17000000">
+        <div class="service-result"></div>
+        <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+            <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari Penjual
+        </div>
+    </div>
+
+    <!-- Netflix Premium -->
+    <div class="service-item" data-platform="gratis">
+        <div class="service-header">
+            <span class="service-name">
+                <img class="platform-icon netf" src="https://geraitopup.com/assets/thumbnail/106af21c0028ab9c08e140f3f9d917c58dfaaca3.png" alt="Netflix Icon" width="24" height="24">
+                Netflix Premium
+                <span class="tag popular">POPULER</span>
+            </span>
+            <span class="service-price">Rp 17.000</span>
+        </div>
+        <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="0" data-rate="17000000">
+        <div class="service-result"></div>
+        <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+            <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun sharing 1P2U, Akun dari penjual
+        </div>
+    </div>
+
+    <!-- Spotify Premium -->
+    <div class="service-item" data-platform="gratis">
+        <div class="service-header">
+            <span class="service-name">
+                <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/spotify.jpg" alt="Spotify Icon" width="24" height="24">
+                Spotify Premium
+                <span class="tag popular">POPULER</span>
+            </span>
+            <span class="service-price">Rp 15.000</span>
+        </div>
+        <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="0" data-rate="15000000">
+        <div class="service-result"></div>
+        <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+            <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari penjual
+        </div>
+    </div>
+
+    <!-- Youtube Premium -->
+    <div class="service-item" data-platform="gratis">
+        <div class="service-header">
+            <span class="service-name">
+                <img class="platform-icon am" src="https://geraitopup.com/assets/thumbnail/youtube-new.jpg" alt="YouTube Icon" width="24" height="24">
+                Youtube Premium
+                <span class="tag popular">POPULER</span>
+            </span>
+            <span class="service-price">Rp 5.000</span>
+        </div>
+        <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah yg ingin di pesan" min="100" data-rate="5000000">
+        <div class="service-result"></div>
+        <div class="service-description" style="margin-top: 10px; font-size: 14px; color: #555;">
+            <strong>Deskripsi:</strong> Premium 1bulan dan garansi 30hari, akun private, Akun dari pembeli
+        </div>
+    </div>
+</div>
+
+<!-- Layanan Sosial Media Promo -->
+<div class="category-section">
+    <!-- Instagram Likes -->
+    <div class="service-item" data-platform="gratis">
+        <div class="service-header">
+            <span class="service-name">
+                <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/669658ed69960.png" alt="Instagram Icon" width="24" height="24">
+                Instagram Likes
+                <span class="tag promo">PROMO</span>
+            </span>
+            <span class="service-price">Rp 5.000/1000</span>
+        </div>
+        <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="100" data-rate="5000">
+        <div class="service-result"></div>
+    </div>
+
+    <!-- Instagram Views -->
+    <div class="service-item" data-platform="gratis">
+        <div class="service-header">
+            <span class="service-name">
+                <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/669658ed69960.png" alt="Instagram Icon" width="24" height="24">
+                Instagram Views
+                <span class="tag promo">PROMO</span>
+            </span>
+            <span class="service-price">Rp 1.000/1000</span>
+        </div>
+        <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="100" data-rate="1000">
+        <div class="service-result"></div>
+    </div>
+</div>
+
+<style>
+.category-section {
+    margin-bottom: 30px;
+}
+
+.category-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.tag.popular {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.tag.promo {
+    background-color: #4ecdc4;
+    color: white;
+}
+
+.service-name {
+    display: flex;
+    align-items: center;
+}
+</style>
+                        <!-- Discord Services -->
+<div class="service-item" data-platform="discord">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon discord" src="https://bcd-pedia.id/assets/img/category/666da9541ea3e.png" alt="Discord Icon" width="24" height="24">
+            Discord Members
+        </span>
+        <span class="service-price">Rp 75.872/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah members" min="0" data-rate="75872">
+    <div class="service-result"></div>
+</div>
+
+<!-- Facebook Services -->
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Profile Followers
+        </span>
+        <span class="service-price">Rp 33.097/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="33097">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Post Likes
+        </span>
+        <span class="service-price">Rp 18.871/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Likes" min="0" data-rate="18871">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Views
+        </span>
+        <span class="service-price">Rp 4.151/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="4151">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="facebook">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon facebook" src="https://bcd-pedia.id/assets/img/category/66d40071f22b8.png" alt="Facebook Icon" width="24" height="24">
+            Facebook Group Members
+        </span>
+        <span class="service-price">Rp 34.643/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Members" min="0" data-rate="34643">
+    <div class="service-result"></div>
+</div>
+
+<!-- Instagram Services -->
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Comments Negative Comments 👎🏼🤢😡
+        </span>
+        <span class="service-price">Rp 73.230/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Comments" min="0" data-rate="73230">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Followers Random (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 30.830/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="30830">
+    <div class="service-result"></div>
+</div>
+                        
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Followers Indonesia (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 50.563/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="50563">
+    <div class="service-result"></div>
+</div>
+                        
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Likes Random (Bergaransi 365h)
+        </span>
+        <span class="service-price">Rp 7.000/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="7000">
+    <div class="service-result"></div>
+</div>
+                        
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Likes Indonesia (Bergaransi 3h)
+        </span>
+        <span class="service-price">Rp 10.701/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="10701">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Saves
+        </span>
+        <span class="service-price">Rp 3000/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah saves" min="0" data-rate="3000">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Shares
+        </span>
+        <span class="service-price">Rp 8.459/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah shares" min="0" data-rate="8459">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="instagram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon instagram" src="https://bcd-pedia.id/assets/img/category/66d9bac88194d.png" alt="instagram Icon" width="24" height="24">
+            Instagram Views
+        </span>
+        <span class="service-price">Rp 5.000/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="5000">
+    <div class="service-result"></div>
+</div>
+
+<!-- Shopee Services -->
+<div class="service-item" data-platform="shopee">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon shopee" src="https://bcd-pedia.id/assets/img/category/6776783ec0814.png" alt="Shopee Icon" width="24" height="24">
+            Shopee Followers Indonesia
+        </span>
+        <span class="service-price">Rp 5.845/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="5845">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="shopee">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon shopee" src="https://bcd-pedia.id/assets/img/category/6776783ec0814.png" alt="Shopee Icon" width="24" height="24">
+            Shopee Views
+        </span>
+        <span class="service-price">Rp 9.962/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="9962">
+    <div class="service-result"></div>
+</div>
+
+
+<!-- Snack Video Services -->
+<div class="service-item" data-platform="snackvideo">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon snackvideo" src="https://bcd-pedia.id/assets/img/category/665027fe718b5.png" alt="Snack Video Icon" width="24" height="24">
+            Snack Video Followers
+        </span>
+        <span class="service-price">Rp 40.753/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="40753">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="snackvideo">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon snackvideo" src="https://bcd-pedia.id/assets/img/category/665027fe718b5.png" alt="Snack Video Icon" width="24" height="24">
+            Snack Video Likes
+        </span>
+        <span class="service-price">Rp 5.080/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Likes" min="0" data-rate="5080">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="snackvideo">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon snackvideo" src="https://bcd-pedia.id/assets/img/category/665027fe718b5.png" alt="Snack Video Icon" width="24" height="24">
+            Snack Video Views
+        </span>
+        <span class="service-price">Rp 10.050/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="10050">
+    <div class="service-result"></div>
+</div>
+
+<!-- Telegram Services -->
+<div class="service-item" data-platform="telegram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon telegram" src="https://bcd-pedia.id/assets/img/category/6649dfa9c3bf7.png" alt="Telegram Icon" width="24" height="24">
+            Telegram Members (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 9.550/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Members" min="0" data-rate="9550">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="telegram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon telegram" src="https://bcd-pedia.id/assets/img/category/6649dfa9c3bf7.png" alt="Telegram Icon" width="24" height="24">
+            Telegram Post Views
+        </span>
+        <span class="service-price">Rp 467/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Views" min="0" data-rate="467">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="telegram">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon telegram" src="https://bcd-pedia.id/assets/img/category/6649dfa9c3bf7.png" alt="Telegram Icon" width="24" height="24">
+            Telegram Reactions
+        </span>
+        <span class="service-price">Rp 567/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Reactions" min="0" data-rate="567">
+    <div class="service-result"></div>
+</div>
+
+<!-- Threads Services -->
+<div class="service-item" data-platform="threads">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon threads" src="https://bcd-pedia.id/assets/img/category/6649df735b55d.png" alt="Threads Icon" width="24" height="24">
+            Threads Followers 
+        </span>
+        <span class="service-price">Rp 25.203/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="25203">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="threads">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon threads" src="https://bcd-pedia.id/assets/img/category/6649df735b55d.png" alt="Threads Icon" width="24" height="24">
+            Threads Likes 
+        </span>
+        <span class="service-price">Rp 17.498/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Likes" min="0" data-rate="17498">
+    <div class="service-result"></div>
+</div>
+
+<!-- TikTok Services -->
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Comments Random (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 30.360/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah Comments" min="0" data-rate="30360">
+    <div class="service-result"></div>
+</div>
+                        
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Followers Random (Bergaransi 15h)
+        </span>
+        <span class="service-price">Rp 35.270/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="35270">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Followers Indonesia (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 72.270/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="72270">
+    <div class="service-result"></div>
+</div>
+                        
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Likes Random (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 10.820/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="10820">
+    <div class="service-result"></div>
+</div>
+
+  <div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Likes Indonesia (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 60.820/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="60820">
+    <div class="service-result"></div>
+</div>
+                      
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Saves (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 8.480/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah saves" min="0" data-rate="8480">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Shares (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 1.128/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah shares" min="0" data-rate="1128">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="tiktok">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tiktok" src="https://bcd-pedia.id/assets/img/category/66c96159a655c.png" alt="tiktok Icon" width="24" height="24">
+            TikTok Views
+        </span>
+        <span class="service-price">Rp 1.912/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="1912">
+    <div class="service-result"></div>
+</div>
+
+<!-- Tokopedia Services -->
+<div class="service-item" data-platform="tokopedia">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon tokopedia" src="https://bcd-pedia.id/assets/img/category/6659a55387451.jpg" alt="Tokopedia Icon" width="24" height="24">
+            Tokopedia Followers (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 57.691/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="57691">
+    <div class="service-result"></div>
+</div>
+
+<!-- WhatsApp Services -->
+<div class="service-item" data-platform="whatsapp">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon whatsapp" src="https://bcd-pedia.id/assets/img/category/667660d362207.png" alt="Whatsapp Icon" width="24" height="24">
+            WhatsApp Followers Channel (Bergaransi 30h)
+        </span>
+        <span class="service-price">Rp 50.220/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah followers" min="0" data-rate="50220">
+    <div class="service-result"></div>
+</div>
+
+<!-- YouTube Services -->
+<div class="service-item" data-platform="youtube">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+            YouTube Likes
+        </span>
+        <span class="service-price">Rp 12.200/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah likes" min="0" data-rate="12200">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="youtube">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+            YouTube Subscribers
+        </span>
+        <span class="service-price">Rp 160.200/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah subscribers" min="0" data-rate="160200">
+    <div class="service-result"></div>
+</div>
+
+<div class="service-item" data-platform="youtube">
+    <div class="service-header">
+        <span class="service-name">
+            <img class="platform-icon youtube" src="https://bcd-pedia.id/assets/img/category/6649dfd36dd16.png" alt="Youtube Icon" width="24" height="24">
+            YouTube Views
+        </span>
+        <span class="service-price">Rp 17.200/1000</span>
+    </div>
+    <input type="number" class="form-input quantity-input" placeholder="Masukkan jumlah views" min="0" data-rate="17200">
+    <div class="service-result"></div>
+</div>
+                    </div>
+
+                </div>
+
+                <!-- Link/Username Section -->
+                <div class="form-group" id="link-section" style="display: none;">
+                    <label class="form-label">LINK/USERNAME/NO WA(jika pesan apikasi premium) TARGET</label>
+                    <div id="links-container">
+                        <div class="link-input-group">
+                            <input type="text" class="form-input link-input" placeholder="Masukkan link atau username target jika pesan suntik sosmed, Masukan no wa jika pesan aplikasi premium">
+                            <button type="button" class="btn-remove-link" onclick="removeLinkField(this)" style="display: none;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="add-link-btn" onclick="addLinkField()">
+                        <i class="fas fa-plus"></i> Tambah Link/Username
+                    </button>
+                </div>
+
+               <div class="total-section">
+    <div class="total-label">Total Harga</div>
+    <div class="total-amount">
+        Rp <span id="total-amount">0</span>
+    </div>
+    
+    <div class="button-group">
+        <button 
+            type="button" 
+            class="btn-order btn-primary" 
+            id="order-btn" 
+            onclick="createOrder()"
+        >
+            <i class="fas fa-paper-plane"></i> 
+            Kirim Pesanan
+        </button>
+        
+        <button 
+            type="button" 
+            class="btn-order btn-reset" 
+            onclick="resetForm()"
+        >
+            <i class="fas fa-refresh"></i>
+        </button>
+    </div>
+</div>
+
+<style>
+.total-section {
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.total-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.total-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-order {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-reset {
+    flex: 0 0 auto;
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    width: 48px;
+    height: 48px;
+    padding: 0;
+}
+
+.btn-reset:hover {
+    background: rgba(239, 68, 68, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-order:active {
+    transform: translateY(0);
+}
+</style>
+            </form>
+        </div>
+
+        <div class="sidebar">
+            <h3 class="sidebar-title">Informasi</h3>
+            
+            <h4 style="margin-bottom: 10px; color: var(--text); font-size: 14px; font-weight: 600;">Langkah-langkah membuat pesanan baru:</h4>
+            <ul class="info-list">
+                <li>Pilih salah satu Kategori.</li>
+                <li>Masukkan jumlah pesanan yang diinginkan.</li>
+                <li>Masukkan link atau username target.</li>
+                <li>Klik tombol "Buat Pesanan" untuk mengirim ke WhatsApp.</li>
+            </ul>
+
+            <h4 style="margin: 20px 0 10px; color: var(--text); font-size: 14px; font-weight: 600;">Ketentuan membuat pesanan baru untuk suntik sosmed:</h4>
+            <ul class="info-list">
+                <li>Silahkan membuat pesanan sesuai langkah-langkah diatas.</li>
+                <li>Jika ingin membuat pesanan dengan Target yang sama dengan pesanan yang sudah pernah dipesan sebelumnya, mohon menunggu sampai pesanan sebelumnya selesai diproses.</li>
+                <li>Jangan memasukkan orderan yang sama jika orderan sebelumnya belum selesai.</li>
+                <li>Sebelum order Pastikan target/akun nya tidak di private, Jika di private maka diluar tanggung jawab kami jika pesanan nya hargus.</li>
+                <li>Jangan mengganti username atau menghapus link target saat sudah order.</li>
+                <li>Orderan yang sudah masuk tidak dapat di cancel / refund manual, seluruh proses orderan dikerjakan secara otomatis oleh server.</li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <a href="https://wa.me/628567325691" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+// Navigation function
+function navigateTo(page) {
+    if (page === 'payment') {
+        // Redirect to payment page
+        window.location.href = 'appprem.html#payment'; // or your payment page URL
+    } else if (page === 'premium') {
+        // Redirect to home page
+        window.location.href = 'appprem.html'; // or your home page URL
+    }
+}
+$(document).ready(function() {
+    $('#category-select').select2({
+        templateResult: formatOption,
+        templateSelection: formatOption
+    });
+    
+    function formatOption(option) {
+        if (!option.id) return option.text;
+        var $option = $(
+            '<span><img src="' + $(option.element).data('icon') + '" class="select-icon" /> ' + option.text + '</span>'
+        );
+        return $option;
+    }
+});
+
+</script>
+<script>
+  // Blok tombol Ctrl+U
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+      e.preventDefault();
+      alert("Akses kode sumber dinonaktifkan.");
+    }
+  });
+
+  // Blok klik kanan
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert("Klik kanan dinonaktifkan.");
+  });
+
+  // Blok F12 (Developer Tools)
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12') {
+      e.preventDefault();
+      alert("Developer Tools dinonaktifkan.");
+    }
+  });
+
+  // Blok Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.shiftKey && (
+        e.key.toLowerCase() === 'i' ||
+        e.key.toLowerCase() === 'j' ||
+        e.key.toLowerCase() === 'c')) {
+      e.preventDefault();
+      alert("Developer Tools dinonaktifkan.");
+    }
+  });
+
+  // Blok Ctrl+S (Save As)
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key.toLowerCase() === 's') {
+      e.preventDefault();
+      alert("Fungsi save dinonaktifkan.");
+    }
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const categorySelect = document.getElementById("category-select");
+    categorySelect.value = "gratis"; // Pilih otomatis opsi PROMO
+
+    // Jika kamu punya logika yang perlu dijalankan saat kategori berubah (misalnya fetch layanan), kamu bisa trigger event 'change':
+    categorySelect.dispatchEvent(new Event('change'));
+});
+</script>
+ <!-- JAVASCRIPT -->
+  <script>
+    function tutupPopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</body>
+</html>
